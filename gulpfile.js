@@ -1,5 +1,22 @@
 'use strict';
 
+/**
+ * Find Gulp plugins at http://gulpjs.com/plugins/
+ *
+ * TODO & NOTES:
+ * https://www.npmjs.com/package/gulp-scss-lint/
+ * https://www.npmjs.com/package/del/
+ * https://www.npmjs.com/package/gulp-imagemin/
+ * https://www.npmjs.com/package/gulp-iconify
+ * https://github.com/tracker1/gulp-header
+ * https://github.com/greypants/gulp-starter
+ * https://github.com/mrmartineau/martineau.tv/blob/master/gulpfile.js#L142
+ * http://stackoverflow.com/questions/24730215/gulp-newer-vs-gulp-changed
+ * https://github.com/robrich/gulp-if
+ * https://www.npmjs.com/package/gulp-sourcemaps
+ * http://ricostacruz.com/cheatsheets/gulp.html
+ */
+
 // Include Gulp & Tools We'll Use
 var gulp        = require('gulp');
 var $           = require('gulp-load-plugins')();

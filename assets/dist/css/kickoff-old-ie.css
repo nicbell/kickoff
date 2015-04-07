@@ -134,9 +134,6 @@
  * Colour palette (yeah we're British!)
  */
 /**
- * Forms
- */
-/**
  * Variables
  * =================================
  * Typography
@@ -523,9 +520,26 @@ samp {
  */
 /**
  * Buttons
- * Based on csswizardry.com/beautons
+ * =================================
+ * Index:
+ * - Associated Button Variables
+ * - Base button styling
+ * – Button Modifiers
+ * 	 – btn--primary
+ *   – btn--large
+ *   – btn--small
+ *   – btn--pill
+ *   – btn--block
+ *   – btn--natural
+ *   – btn--link
+ *   – btn--close
+ */
+/**
+ * Define associated Button variables
+ */
+/**
+ * Base button styles – Based on csswizardry.com/beautons
  *
- * Base button styles:
  * 1. Allow us to better style box model properties.
  * 2. Line different sized buttons up a little nicer.
  * 3. Stop buttons wrapping and looking broken.
@@ -812,11 +826,16 @@ input[type="submit"].btn--block, input[type="reset"].btn--block, input[type="but
 /**
  * Forms
  * =================================
- * Generic form styles
- * Form inputs and groups
- * Form field feedback states
- * Horizontal & vertical forms
- * Horizontal-specific styles
+ * Index:
+ * - Associated Form Variables
+ * - Generic form styles
+ * - Form inputs and groups
+ * - Form field feedback states
+ * - Horizontal & vertical forms
+ * - Horizontal-specific styles
+ */
+/**
+ * Define associated Form variables
  */
 /**
  * Generic form styles
@@ -1419,10 +1438,17 @@ img, object, embed, video {
   .l-blockGrid.l-blockGrid--12up > li {
     width: 8.3333333333%; }
 
-/*
-	Tabs
-
-	* Usage:
+/**
+ * Tabs
+ * =================================
+ */
+/**
+ * Define associated tab variables
+ */
+/**
+ * Tabs base styling
+ *
+ * Usage:
 	<ul class="tabs">
 		<li><a href="#tabs-example-1" class="is-active">Tab 1</a></li>
 		<li><a href="#tabs-example-2">Tab 2</a></li>
@@ -1470,7 +1496,35 @@ img, object, embed, video {
 
 /**
  * Tables
+ * =================================
+ * Index:
+ * - Associated Table Variables
+ * - Default table Styles
+ * – Table modifiers:
+ *   - .table--condensed
+ *   - .table--bordered
+ *   - .table--rounded
+ *   - .table--striped
+ *   – .table--hover
+ * – .tableResponsive
  */
+/**
+ * Define associated Table variables
+ */
+<<<<<<< HEAD:css/kickoff-old-ie.css
+/**
+ * Default Table styles
+ **/
+table {
+  background-color: #f1f1f1;
+}
+
+th {
+  text-align: left;
+}
+
+=======
+>>>>>>> abbd1dbd9ce9a919cd7d7f800f0090a04121503e:assets/dist/css/kickoff-old-ie.css
 .table {
   width: 100%;
   max-width: 100%;
@@ -1554,7 +1608,15 @@ th {
  * Preformatted code
  * Code typography styles for the <code> and <pre> elements
  */
+<<<<<<< HEAD:css/kickoff-old-ie.css
+/**
+ * Define associated Code variables
+ */
+code,
+pre {
+=======
 code, pre {
+>>>>>>> abbd1dbd9ce9a919cd7d7f800f0090a04121503e:assets/dist/css/kickoff-old-ie.css
   padding: 0 3px 2px;
   font-family: Menlo, Monaco, "Courier New", monospace;
   font-size: 16px;

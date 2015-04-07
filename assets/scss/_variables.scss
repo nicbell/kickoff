@@ -5,7 +5,6 @@
  * Breakpoints
  * Paths
  * Grid setup
- * Colour palette
  * Components
  */
 
@@ -100,13 +99,6 @@ $using-push-pull-columns      : false !default; // Allow columns to be pushed & 
 $using-offsetcolumns          : false !default; // Allow columns to be offset
 $using-splits-and-shunts      : false !default; // Use Splits & Shunts for responsive web design
 
-
-/**
- * Tables
- * Customizes the `.table` component with basic values, each used across all table variations.
- */
-$table-cell-padding           : 8px !default; // Padding for `<th>`s and `<td>`s.
-$table-condensed-cell-padding : 5px !default; // Padding for cells in `.table-condensed`.
 
 
 /**

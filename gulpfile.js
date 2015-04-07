@@ -126,8 +126,6 @@ gulp.task('serve', ['styles', 'js'], function () {
 	gulp.watch([CONFIG.JS.FILELIST], ['js-watch']);
 	// gulp.watch(['img/**/*'], browserSync.reload);
 	// gulp.watch(['*.html'], reload({stream:true}));
-
-	// watcher();
 });
 
 
@@ -138,18 +136,8 @@ gulp.task('default', function (cb) {
 
 // Watch task
 gulp.task('watch', ['styles', 'js'], function () {
-	watcher();
-});
 
-function watcher() {
-	gulp.watch([
-			'./**/*.html'
-	], browserSync.reload);
-	gulp.watch([CONFIG.CSS.SCSSDIR +'/**/*.scss'], ['styles']);
-	gulp.watch([CONFIG.JS.FILELIST], ['js']);
-	// gulp.watch(['img/**/*'], browserSync.reload);
-	// gulp.watch(['*.html'], reload({stream:true}));
-}
+});
 
 // Lint JavaScript
 gulp.task('jshint', function () {

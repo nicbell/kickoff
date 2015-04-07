@@ -13,6 +13,8 @@ var ASSETSDIR = './assets'; // ASSETSDIR
 var DISTDIR   = ASSETSDIR + '/dist'; // DISTDIR
 
 var CONFIG = {
+	PRODUCTION : true,
+
 	CSS : {
 		SRCFILE : 'kickoff',                    // CONFIG.CSS.SRCFILE
 		SCSSDIR : ASSETSDIR + '/scss', // CONFIG.CSS.SCSSDIR

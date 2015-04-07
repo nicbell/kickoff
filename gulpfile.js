@@ -126,7 +126,6 @@ gulp.task('styles', function () {
 // Serve site, watch files for changes & reload
 gulp.task('serve', ['styles', 'js'], function () {
 	browserSync({
-		notify: false,
 		server: {
 			baseDir: "./"
 		}

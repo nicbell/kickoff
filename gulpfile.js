@@ -88,11 +88,7 @@ gulp.task('js-watch', ['js'], browserSync.reload);
 
 // Compile and Automatically Prefix Stylesheets
 gulp.task('styles', function () {
-	var s = $.size();
-
-	// For best performance, don't add Sass partials to `gulp.src`
 	return gulp.src(CONFIG.CSS.SCSSFILES)
-		.pipe(s)
 		.pipe($.sourcemaps.init())
 			.pipe($.sass({
 				precision: 10,
@@ -100,27 +96,14 @@ gulp.task('styles', function () {
 			}))
 		.pipe($.sourcemaps.write())
 		.pipe($.autoprefixer({browsers: CONFIG.CSS.AUTOPREFIXER_BROWSERS}))
-		.pipe(gulp.dest(CONFIG.CSS.DISTDIR))
-		// .pipe($.size({title: 'styles',gzip: true}))
 
-		// Concatenate And Minify Styles
-		.pipe($.if('*.css', $.csso()))
-		.pipe($.rename({suffix: '.min'}))
-		.pipe($.header(CONFIG.BANNER, { pkg : pkg } ))
-		.pipe(gulp.dest(CONFIG.CSS.DISTDIR))
-		// .pipe(
-		// 	$.notify({
-		// 		onLast: true,
-		// 		title: 'Build CSS styles completed',
-		// 		message: function () {
-		// 			return 'Total size ' + s.prettySize;
-		// 		}
-		// 	})
-		// )
-		// .pipe($.size({title: 'styles',gzip: true}))
-		// .pipe(reload({ stream:true }));
-		.pipe(reload);
+		// Minify styles only if CONFIG.PRODUCTION === true
+		.pipe($.if(CONFIG.PRODUCTION, $.csso() ))
+		.pipe($.if(CONFIG.PRODUCTION, $.header(CONFIG.BANNER, {pkg:pkg}) ))
 
+		.pipe(gulp.dest(CONFIG.CSS.DISTDIR))
+		.pipe(reload({ stream:true }))
+		.pipe($.size({title: 'Styles compiled', gzip: true}));
 });
 
 

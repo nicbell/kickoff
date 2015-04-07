@@ -94,13 +94,10 @@ gulp.task('js', function() {
 		.pipe($.sourcemaps.init())
 			.pipe($.concat('app.js'))
 		.pipe($.sourcemaps.write())
+		.pipe($.if(CONFIG.PRODUCTION, $.uglify()))
+		// .pipe($.header(CONFIG.BANNER, { pkg : pkg } ))
 		.pipe(gulp.dest(CONFIG.JS.DISTDIR))
-		.pipe($.size({title: 'Unminified js', gzip: true}))
-		.pipe($.uglify())
-		.pipe($.rename({suffix: '.min'}))
-		.pipe($.header(CONFIG.BANNER, { pkg : pkg } ))
-		.pipe(gulp.dest(CONFIG.JS.DISTDIR))
-		.pipe($.size({title: 'Minified js',gzip: true}));
+		.pipe($.size({title: 'JS compiled', gzip: true}));
 });
 gulp.task('js-watch', ['js'], browserSync.reload);
 

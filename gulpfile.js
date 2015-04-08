@@ -25,9 +25,14 @@ var browserSync = require('browser-sync');
 var reload      = browserSync.reload;
 var pkg         = require('./package.json');
 
+// Imagemin plugins
+var mozjpeg     = require('imagemin-mozjpeg');
+var pngquant    = require('imagemin-pngquant');
+var gifsicle    = require('imagemin-gifsicle');
 
-var ASSETSDIR = './assets'; // ASSETSDIR
-var DISTDIR   = ASSETSDIR + '/dist'; // DISTDIR
+
+var ASSETSDIR   = './assets'; // ASSETSDIR
+var DISTDIR     = ASSETSDIR + '/dist'; // DISTDIR
 
 var CONFIG = {
 	PRODUCTION : true,
@@ -74,7 +79,8 @@ var CONFIG = {
 
 	// CONFIG.IMG
 	IMG : {
-		DIR : ASSETSDIR + '/img' // CONFIG.IMG.DIR
+		SRCDIR  : ASSETSDIR + '/img', // CONFIG.IMG.SRCDIR
+		DISTDIR : DISTDIR + '/img' // CONFIG.IMG.DISTDIR
 	},
 
 	// CONFIG.BANNER
@@ -139,6 +145,45 @@ gulp.task('serve', ['styles', 'js'], function () {
 	gulp.watch([CONFIG.JS.FILELIST], ['js-watch']);
 	// gulp.watch(['img/**/*'], browserSync.reload);
 	// gulp.watch(['*.html'], reload({stream:true}));
+});
+
+
+// https://github.com/sindresorhus/gulp-imagemin
+gulp.task('imagemin', function () {
+	return gulp.src([CONFIG.IMG.SRCDIR + '/**/*.{svg,png,jpg,gif}', '!'+CONFIG.IMG.SRCDIR +'/icons/source/**/*.{svg,png,jpg,gif}'])
+		// needs a 'newer' task to check if we need to run this?
+		.pipe($.imagemin({
+			progressive: true,
+			svgoPlugins: [
+				{ removeViewBox: false },
+				{ removeUselessStrokeAndFill: false }
+			],
+			use: [
+				mozjpeg(),
+				pngquant(),
+				gifsicle()
+			]
+		}))
+		// possibly needs a clean to remove old images?
+		.pipe(gulp.dest(CONFIG.IMG.DISTDIR));
+});
+
+gulp.task('icons', function () {
+	return gulp.src([CONFIG.IMG.SRCDIR +'/icons/source/**/*.{svg,png,jpg,gif}'])
+		.pipe($.imagemin({
+			progressive: true,
+			svgoPlugins: [
+				{ removeViewBox: false },
+				{ removeUselessStrokeAndFill: false }
+			],
+			use: [
+				mozjpeg(),
+				pngquant(),
+				gifsicle()
+			]
+		}))
+		.pipe() // grunticon
+		.pipe(gulp.dest(CONFIG.IMG.DISTDIR));
 });
 
 

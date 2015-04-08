@@ -92,7 +92,7 @@ gulp.task('serve', ['styles', 'js'], function () {
 // https://github.com/sindresorhus/gulp-imagemin
 gulp.task('imagemin', function () {
 	return gulp.src([CONFIG.IMG.SRCDIR + '/**/*.{svg,png,jpg,gif}', '!'+CONFIG.IMG.SRCDIR +'/icons/source/**/*.{svg,png,jpg,gif}'])
-		// needs a 'newer' task to check if we need to run this?
+		.pipe($.changed(CONFIG.IMG.DISTDIR))
 		.pipe($.imagemin({
 			progressive: true,
 			svgoPlugins: [

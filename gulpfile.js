@@ -84,7 +84,7 @@ gulp.task('serve', ['styles', 'js'], function () {
 	], reload);
 	gulp.watch([CONFIG.CSS.SCSSDIR +'/**/*.scss'], ['styles']);
 	gulp.watch([CONFIG.JS.FILELIST], ['js-watch']);
-	// gulp.watch(['img/**/*'], browserSync.reload);
+	// gulp.watch(['img/**/*'], reload);
 	// gulp.watch(['*.html'], reload({stream:true}));
 });
 

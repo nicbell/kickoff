@@ -38,15 +38,15 @@ var gifsicle    = require('imagemin-gifsicle');
 // Not using Browserify, yet
 gulp.task('js', function() {
 	return gulp.src(CONFIG.JS.FILELIST)
-		.pipe($.sourcemaps.init())
+		.pipe($.if(!CONFIG.PRODUCTION, $.sourcemaps.init()))
 			.pipe($.concat('app.js'))
-		.pipe($.sourcemaps.write())
+		.pipe($.if(!CONFIG.PRODUCTION, $.sourcemaps.write()))
 		.pipe($.if(CONFIG.PRODUCTION, $.uglify()))
 		// .pipe($.header(CONFIG.BANNER, { pkg : pkg } ))
 		.pipe(gulp.dest(CONFIG.JS.DISTDIR))
 		.pipe($.size({title: 'JS compiled', gzip: true}));
 });
-gulp.task('js-watch', ['js'], browserSync.reload);
+gulp.task('js-watch', ['js'], reload);
 
 
 // Compile and Automatically Prefix Stylesheets

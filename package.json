@@ -50,6 +50,7 @@
     "grunt-grunticon": "^2.1.6",
     "grunt-newer": "^1.1.0",
     "grunt-scss-lint": "^0.3.8",
+    "grunt-sass-lint": "0.1.0-beta.4",
     "grunt-shimly": "^1.0.1",
     "imagemin-gifsicle": "^4.2.0",
     "imagemin-jpegtran": "^4.3.1",

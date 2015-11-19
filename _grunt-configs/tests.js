@@ -15,6 +15,19 @@ module.exports.tasks = {
 
 
 	/**
+	 * Grunt Sass Lint
+	 * Uses https://github.com/sasstools/sass-lint, a node-based version
+	 * https://github.com/sasstools/grunt-sass-lint
+	 */
+	sasslint: {
+		options: {
+			configFile: '.sass-lint.yml',
+		},
+		target: ['<%=config.css.scssDir%>/**/*.scss'],
+	},
+
+
+	/**
 	* JSHint
 	* https://github.com/gruntjs/grunt-contrib-jshint
 	* Manage the options inside .jshintrc file

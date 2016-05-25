@@ -1,10 +1,11 @@
-/**
- * Utility Mixins
- */
+////
+/// Utility Mixins.
+/// @group utility
+////
 
-// Clearfix
-// http://www.cssmojo.com/latest_new_clearfix_so_far/
-// Other clearfix options: https://github.com/stubbornella/oocss/blob/master/oocss/src/components/utils/_clearfix-me.scss
+/// Clearfix <br>
+/// http://www.cssmojo.com/latest_new_clearfix_so_far/ <br>
+/// Other clearfix options: https://github.com/stubbornella/oocss/blob/master/oocss/src/components/utils/_clearfix-me.scss
 @mixin clearfix {
 	&:after {
 		content: "";
@@ -13,8 +14,10 @@
 	}
 }
 
-// REM
-// @include rem(margin, $font-size-base);
+/// Set REM value for a property
+/// @example @include rem(margin, $font-size-base);
+/// @parameter {String} $property - property
+/// @parameter {Number} $sizeValue [$font-size-base] - value in pixels
 @mixin rem($property, $sizeValue: $font-size-base) {
 	$remValue: (strip-units($sizeValue) / $font-size-base);
 	// #{$property}: ceil($sizeValue) + px;

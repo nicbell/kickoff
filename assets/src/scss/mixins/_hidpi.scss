@@ -1,8 +1,12 @@
-/**
- *  HiDPI mixin.
- *  @include hidpi { ... };
- *  Default value set to 1.3 to target Google Nexus 7 (http://bjango.com/articles/min-device-pixel-ratio/)
- */
+////
+/// HiDPI mixins.
+/// @group hidpi
+////
+
+/// HiDPI mixin.
+/// Default value set to 1.3 to target Google Nexus 7 (http://bjango.com/articles/min-device-pixel-ratio/)
+/// @example @include hidpi { ... };
+/// @parameter {Number} $ratio [1.25] - ratio
 @mixin hidpi($ratio: 1.25) {
 	@media print,
 		(-webkit-min-device-pixel-ratio: $ratio),
@@ -13,10 +17,10 @@
 }
 
 
-/**
- * Hidpi with a minimum width media query
- * @include hidpi-min(bp(mid), 1.5) { ... };
- */
+/// Hidpi with a minimum width media query
+/// @example @include hidpi-min(bp(mid), 1.5) { ... };
+/// @parameter {Number|String} $width - width
+/// @parameter {Number} $ratio [1.25] - ratio
 @mixin hidpi-min($width, $ratio: 1.25) {
 	$width-em: em(strip-units(bp($width)), $mq-base);
 
@@ -29,10 +33,10 @@
 }
 
 
-/**
- * Hidpi with a max width media query
- * @include hidpi-max(bp(mid), 1.3) { ... };
- */
+/// Hidpi with a max width media query
+/// @example @include hidpi-max(bp(mid), 1.3) { ... };
+/// @parameter {Number|String} $width - width
+/// @parameter {Number} $ratio [1.25] - ratio
 @mixin hidpi-max($width, $ratio: 1.25) {
 	$width-em: em(strip-units(bp($width)), $mq-base);
 
